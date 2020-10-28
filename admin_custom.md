@@ -1,8 +1,8 @@
 # Кастомизация админки при помощи файла local/php_interface/admin_header.php
 
 > Задача. В списке обращений в модуле техподдержки раскрасить различные критичности в разные цвета
+
 ![img](/img/criticality.png)
-![img2](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/img/criticality.png)
 
 1. В local/php_interface_init.php Назначим классы для ячеек, содержащих справочник "Критичность"
 
