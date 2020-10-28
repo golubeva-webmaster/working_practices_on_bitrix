@@ -2,6 +2,8 @@
 
 > Задача. На странице редактирования заказа /bitrix/admin/sale_order_view.php добавить блок "Наличие по складам" и ссылку вверху на него
 
+![img](/img/in_sclad.png)
+
 В local/php_interface_init.php 
 
 ```
