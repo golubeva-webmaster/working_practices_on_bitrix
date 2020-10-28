@@ -20,7 +20,8 @@
 ```
 
 2. В файле local/php_interface/admin_header.php (если нет, создать) пропишим стили и скрипты. Файл выполненяется в начале загрузки страницы админки, поэтому чтобы выполнялись скрипты на странице, проверить выполнение  DOMContentLoaded
-`<style>
+```
+ <style>
       .criticality{
           padding: 3px;
           width: 100%;
@@ -53,4 +54,4 @@
           console.log('DOM end');
       });
   </script>
-`
+```
