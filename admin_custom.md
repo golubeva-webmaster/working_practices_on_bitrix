@@ -4,7 +4,7 @@
 
 1. В local/php_interface_init.php Назначим классы для ячеек, содержащих справочник "Критичность"
 
-    \Bitrix\Main\EventManager::getInstance()->addEventHandler("main", "OnAdminListDisplay", array("AdminCustom", "SuppotrTicketList"));
+`    \Bitrix\Main\EventManager::getInstance()->addEventHandler("main", "OnAdminListDisplay", array("AdminCustom", "SuppotrTicketList"));
 
     class AdminCustom
       {
@@ -17,9 +17,9 @@
                   }
               }
           }
-
+`
 2. В файле local/php_interface/admin_header.php (если нет, создать) пропишим стили и скрипты. Файл выполненяется в начале загрузки страницы админки, поэтому чтобы выполнялись скрипты на странице, проверить выполнение  DOMContentLoaded
-
+`
       <style>
           .criticality{
               padding: 3px;
@@ -53,3 +53,4 @@
               console.log('DOM end');
           });
       </script>
+`
