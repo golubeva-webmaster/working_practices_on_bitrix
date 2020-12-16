@@ -117,26 +117,52 @@ function addSupportTicket($arr){
     else {
         //Тема не содержит '.MAIL_ANSWER
         $ticket_id = '';
-        if((mb_strpos($arr['title'], '[TicketID:') !== false)) {
-            //Не создаем ничего, выходим из функции
-            return false;
-        }
+        if((mb_strpos($arr['title'], '[TicketID:') !== false))
+            return false; //Не создаем ничего, выходим из функции
     }
 
+    if((mb_strpos($arr['title'], 'FW:') !== false))
+        return false; //Не создаем ничего, выходим из функции
+    //Заявка создана через SAP ERP. Пользователь KORNEVA. Уровень критичности [high].
+    /*
+     low низкая
+     middle - средняя
+     high - высок
+     critical  - критический
+
+    SAP: низкий, средний, высокий, критический
+    ex: Заявка создана через SAP ERP. Пользователь IKONNIKOVAN. Приоритет низкий.
+    */
+    //Определение критичности для заявок из САП
+    if ((mb_strpos($arr['body'], 'SAP ERP') !== false)
+        &&
+        (mb_strpos($arr['body'], 'Приоритет ') !== false)
+    ){
+        $arrPrior = explode('Приоритет ',$arr['body']);
+        $arrPr = explode('.',$arrPrior[1]);
+        switch ($arrPr[0]){
+            case 'низкий': $criticaly = 'low'; break;
+            case 'средний': $criticaly = 'middle'; break;
+            case 'высокий': $criticaly =  'high'; break;
+            case 'критический': $criticaly =  'critical'; break;
+            default: $criticaly = 'middle';
+        }
+    }
+    //TODO источник SAP указать
     CModule::IncludeModule("support");
     $arFields = array(
         "CREATED_MODULE_NAME"       => "mail",          //идентификатор модуля из которого создаётся обращение
         "MODIFIED_MODULE_NAME"      => "mail",
-        "OWNER_SID"                 => $arr['from'],  //email автора
-        "OWNER_USER_ID"             => $arr['user_id'], //По email определить id юзера, если не найден - не указывать
-        "SOURCE_SID"                => "email",         //символьный код источника обращения
-        "CATEGORY_SID"              => ((mb_strpos($arr['body'], 'SAP ERP') !== false) ? 'saperp' : 'email'),
-        "CATEGORY_ID"               => ((mb_strpos($arr['body'], 'SAP ERP') !== false) ? 2 : 44),
-        "CRITICALITY_SID"           => "middle",        //символьный код критичности
-        //"STATUS_SID"                => //- символьный код статуса
-//        "RESPONSIBLE_USER_ID"       => 739,              //ID пользователя ответственного за обращение
+        "OWNER_SID"                 => $arr['from'],    //email автора
+        "OWNER_USER_ID"             => $arr['user_id'], //По email определить id юзера, если не найден - TODO завести
+        "CATEGORY_SID"              => ((mb_strpos($arr['body'], 'SAP ERP') !== false) ? 'saperp' : ''), //email
+        "CATEGORY_ID"               => ((mb_strpos($arr['body'], 'SAP ERP') !== false) ? 2 : 0), //44
+        "SOURCE_SID"                => ((mb_strpos($arr['body'], 'SAP ERP') !== false) ? 'saperp' : 'email'), //символьный код источника обращения
+        "CRITICALITY_SID"           => ($criticaly <> '') ? $criticaly : "middle",        //символьный код критичности
+        "STATUS_SID"                => "open",
         "TITLE"                     => $arr['title'],
         "MESSAGE"                   => $arr['body'],
+        "SUPPORT_COMMENTS"          => (strlen($arr['body']) > 200) ? substr(trim($arr['body']),0,200) : trim($arr['body']),
     );
     // Прикладываю файл
     if(isset($arr['attachs']) && !empty($arr['attachs'])) {
@@ -161,24 +187,112 @@ function addSupportTicket($arr){
     $arr['MESSAGE_ID'] = $MESSAGE_ID;
     $arr['NEW_TICKET_ID'] = $NEW_TICKET_ID;
     mariMail($arr);
-}
 
+    $f = fopen ("/home/bitrix/www/logs/local-cron-generate_mail_".date("d-m-Y")."_.log", "a+");
+    fwrite($f,"\n".'[local/php_interface/volma_functions/mail_parser/functions.php: addSupportTicket] '."\n"."\n");
+    fwrite($f,'MASSAGE_ID: '.$MESSAGE_ID."\n");
+    fwrite($f,'NEW_TICKET_ID: '.$NEW_TICKET_ID."\n");
+    fclose($f);
 
-function getUserID($filter){
-    global $USERS;
-    echo '<br>[getUserID] filter: <pre>'; print_r($filter); echo '</pre>';
-
-    $sql = CUser::GetList(($by="id"), ($order="desc"), $filter);
-
-    if($sql->NavNext(true, "f_"))
-    {
-        $id_user = $f_ID;
-        echo '<br>определился ID пользователя '.$id_user.'<br>';
-    }
+    if($NEW_TICKET_ID)
+        return true;
     else
-        echo '<br>НЕ определился ID пользователя '.'<br>';
-    return $id_user;
+        return false;
 }
 
+
+function getUserID($email){
+    global $USERS;
+
+    $filter = ["EMAIL" => $email];
+    echo '<br>[getUserID] <br>filter: <pre>'; print_r($filter); echo '</pre>';
+    $sql = CUser::GetList(($by="id"), ($order="desc"), $filter);
+    if($sql->NavNext(true, "f_")) {
+        $user_id = $f_ID;
+        echo 'Пользователь существует: '.$user_id.'<br>';
+        return $user_id;
+    }
+    else{
+        echo '[getUserID] Пользователь c email '.$email.' НЕ существует<br>';
+        $userName = explode('@',$email);
+        echo '<pre>'; print_r($userName); echo '</pre>';
+
+        // Если уже есть юзер с таким логином, дополнить логин
+        $userLogin = $userName[0];
+        $rsUser = CUser::GetByLogin($userLogin);
+        if($arUser = $rsUser->Fetch())
+            $userLogin .= '_'.$userName[1];
+
+        $userPass = (strlen($userLogin) < 6) ? $userLogin.$userLogin : $userLogin;
+
+        $user = new CUser;
+        $arFields = Array(
+            "NAME"              => $userLogin,
+            "EMAIL"             => $email,
+            "LOGIN"             => $userLogin,
+            "LID"               => "ru",
+            "ACTIVE"            => "Y",
+            "GROUP_ID"          => array(19,21),
+            "PASSWORD"          => $userPass,
+            "CONFIRM_PASSWORD"  => $userPass,
+        );
+        echo '<pre>'; print_r($arFields); echo '</pre>';
+
+        $ID = $user->Add($arFields);
+
+        if (intval($ID) > 0) {
+            echo 'Пользователь создан: ' . $ID . '<br>';
+
+            return $ID;
+        }
+        else {
+            echo 'Пользователь создан с ошибкой: ';
+            mail('marishagolubeva@gmail.com','shop.volma[local/php_interface/volma_functions/mail_parser/functions.php str 220]','Не создан пользователь на основе email '.$email.' отшибка: '.$user->LAST_ERROR);
+            mariMail($arFields);
+            echo $user->LAST_ERROR.'<br>';
+        }
+    }
+}
+
+function getAttach($obj, $connection, $i, $j, $fn, $f){
+
+    echo '[getAttach] j = '.$j.'<br>';
+    echo 'subtype = '.$obj->subtype.'<br>';
+    if($obj->subtype <> 'HTML'
+        &&
+        $obj->subtype <> 'text/html'
+        &&
+        $obj->subtype <> 'PLAIN') {
+
+        $arr = (array)$obj->parameters;
+        if (!empty($arr)) {
+            $name = (get_imap_title($obj->parameters[0]->value) !== '') ?
+                get_imap_title($obj->parameters[0]->value) :
+                $obj->parameters[0]->value;
+        }
+        $arrRes = [];
+        $arrRes["type"] = $obj->subtype;
+        $arrRes["size"] = $obj->bytes;
+        $arrRes["name"] = $name;
+        $arrRes["encoding"] = $obj->encoding;
+        $arrRes["sys_get_temp_dir()"] = sys_get_temp_dir(); //TODO удалить после теста
+        $arrRes["file"] = structure_encoding(
+            $obj->encoding, // номер кодировки
+            imap_fetchbody($connection, $i, $fn) //закодированное тело файла
+        );
+        ///tmp/img_tmp/image001.jpgUGD0DR
+        /// /tmp/image001.jpgdBBcix
+        //$arrRes["tmp_file_name"] = tempnam(sys_get_temp_dir(), 'img_tmp/' . iconv("utf-8", "cp1251", $arrRes["name"]));
+        $arrRes["tmp_file_name"] = tempnam(sys_get_temp_dir(), 'img_tmp/' . $arrRes["name"]);
+        $arrRes["tmp_file"] = file_put_contents($arrRes["tmp_file_name"], $arrRes["file"]);
+
+        fwrite($f, "\n" . 'Вложение ' . $j . ': ' . "\n");
+        fwrite($f, 'название: ' . $arrRes["name"] . "\n");
+        fwrite($f, 'тип: ' . $arrRes["type"] . "\n");
+        fwrite($f, 'размер: ' . $arrRes["size"] . "\n");
+
+        return $arrRes;
+    }
+}
 ?>
 
