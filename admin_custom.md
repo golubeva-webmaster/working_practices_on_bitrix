@@ -28,6 +28,9 @@
                    case 'Критическая':
                        $critic_class = 'critic_critical';
                        break;
+                   default:
+                       $critic_class = '';
+                       break;
                    }
                    $row->aFields["CRITICALITY_ID"]["view"]["value"] = '<span class="criticality '.$critic_class.'">'.$value.'</span>';
                }
