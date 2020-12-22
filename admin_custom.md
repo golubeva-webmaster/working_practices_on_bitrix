@@ -4,7 +4,7 @@
 
 ![img](/img/criticality.png)
 
-1. В local/php_interface_init.php Назначим классы для ячеек, содержащих справочник "Критичность"
+1. В local/php_interface/init.php Назначим классы для ячеек, содержащих справочник "Критичность"
 
 ```
  \Bitrix\Main\EventManager::getInstance()->addEventHandler("main", "OnAdminListDisplay", array("AdminCustom", "SuppotrTicketList"));
