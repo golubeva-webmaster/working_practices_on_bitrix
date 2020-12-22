@@ -9,5 +9,5 @@
 * [Распарсивание непрочитанных писем. Создание на их основе обращений в модуль Техподдержка битрикса](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/parser_mail/)
 
 * [Bash скрипты бекапирования файлов и базы](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/backup/)
-* [Битрикс. Техподдержка. Связь Критичности с Крайнего срока обращения](https://github.com/golubeva-webmaster/working_practices_on_bitrix/support_criticaly.md)
+* [Битрикс. Техподдержка. Связь Критичности с Крайнего срока обращения](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/support_criticaly.md)
 
