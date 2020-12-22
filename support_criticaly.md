@@ -7,20 +7,20 @@
   AddEventHandler('support', 'OnAfterTicketAdd', array("SupportTicket", "OnAfterTicketAddHandler"));
   AddEventHandler('support', 'OnBeforeTicketUpdate', array("SupportTicket","OnBeforeTicketUpdateHandler"));
 помещаем код:
-        // Дедлайн. При изменении заявки изменяем Уровень поддержки в соотв с Критичностью. Это повлечет пересчет Крайнего срока заявки
-        switch ($arFields['CRITICALITY_ID']) {
-            case 4:
-                $arFields['SLA_ID'] = 1;
-                break;
-            case 5:
-                $arFields['SLA_ID'] = 2;
-                break;
-            case 6:
-                $arFields['SLA_ID'] = 3;
-                break;
-            case 40:
-                $arFields['SLA_ID'] = 4;
-                break;
-            default:
-                $arFields['SLA_ID'] = 2;
+  // Дедлайн. При изменении заявки изменяем Уровень поддержки в соотв с Критичностью. Это повлечет пересчет Крайнего срока заявки
+  switch ($arFields['CRITICALITY_ID']) {
+    case 4:
+      $arFields['SLA_ID'] = 1;
+      break;
+    case 5:
+      $arFields['SLA_ID'] = 2;
+      break;
+    case 6:
+      $arFields['SLA_ID'] = 3;
+      break;
+    case 40:
+      $arFields['SLA_ID'] = 4;
+      break;
+    default:
+      $arFields['SLA_ID'] = 2;
         }
