@@ -10,4 +10,5 @@
 
 * [Bash скрипты бекапирования файлов и базы](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/backup/)
 * [Битрикс. Техподдержка. Связь Критичности с Крайнего срока обращения](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/support_criticaly.md)
-
+* [Битрикс. Техподдержка. Статус "решена" = закрыта. Статус "отложена" = отложена](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/
+support_close_ticket.md)
