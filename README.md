@@ -1,4 +1,8 @@
 # Список наработок
+## API битрикса
+
+* [Сделать заказ оплаченным](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/bitrix_api/order_payed.md)
+
 ## Кастомизация админки битрикса
 
 * [Кастомизация списка обращений в ТП при помощи файла local/php_interface/admin_header.php](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/admin_custom.md)
