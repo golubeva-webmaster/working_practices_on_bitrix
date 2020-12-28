@@ -1,5 +1,5 @@
-Сделать заказ Оплаченным
-
+#Сделать заказ Оплаченным
+```
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
 <?
 $orderId = 771;
@@ -14,3 +14,4 @@ $onePayment->setPaid("Y"); // выставляем оплату
 $order->save();
 ?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+```
