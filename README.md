@@ -2,6 +2,10 @@
 ## API битрикса
 
 * [Сделать заказ оплаченным](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/bitrix_api/order_payed.md)
+### Модель "Техподдержка"
+* [Битрикс. Техподдержка. Связь Критичности с Крайнего срока обращения](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/support_criticaly.md)
+* [Битрикс. Техподдержка. Статус Решена=Закрыта. Статус Отложена=Отложена](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/support_close_ticket.md)
+* [Битрикс. Техподдержка. Распарсивание непрочитанных писем. Создание на их основе обращений в модуль Техподдержка](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/parser_mail/)
 
 ## Кастомизация админки битрикса
 
@@ -11,8 +15,5 @@
 ## PHP наработки
 * [Парсер регионов и городов РФ из Википедии](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/parser/)
 * [Bash скрипты бекапирования файлов и базы](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/backup/)
-* [Битрикс. Техподдержка. Связь Критичности с Крайнего срока обращения](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/support_criticaly.md)
-* [Битрикс. Техподдержка. Статус Решена=Закрыта. Статус Отложена=Отложена](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/support_close_ticket.md)
-* [Битрикс. Техподдержка. Распарсивание непрочитанных писем. Создание на их основе обращений в модуль Техподдержка](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/parser_mail/)
 * [Изображения. Отражение и уменьшение.](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/image_mirror_resize)
 
