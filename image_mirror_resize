@@ -1,4 +1,3 @@
-<?// Заркальное отображение картинки и обрезка по 1px с каждой стороны ?>
 <?define("INDEX_PAGE", "Y");?>
 <?define("MAIN_PAGE", true);?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
@@ -38,18 +37,15 @@ function makeMirrorPic($fileImg, $newFile)
         'COMPRESSION' => 75,
     ];
     $arNewFile = CIBlock::ResizePicture(CFile::MakeFileArray(CFile::SaveFile(CFile::MakeFileArray($arFile['tmp_name']),'tmp')), $arrResizeParams); // сольет промежуточные сторонние фотки в папку tm
-    if(is_array($arNewFile)) {
-//        echo '<br>Новый файл после ресайза<pre>';
-//        print_r($arNewFile);
-//        echo '</pre>';
-    }
-    else
-    {
-        //Можно вернуть ошибку
-        $APPLICATION->throwException("Ошибка масштабирования изображения в свойстве \"Файлы\":".$arNewFile);
-        return false;
-    }
-
+//    if(is_array($arNewFile)) {
+//        echo '<br>Новый файл после ресайза<pre>'; print_r($arNewFile); echo '</pre>';
+//    }
+//    else
+//    {
+//        //Можно вернуть ошибку
+//        $APPLICATION->throwException("Ошибка масштабирования изображения в свойстве \"Файлы\":".$arNewFile);
+//        return false;
+//    }
 
     // очищаем память
     imagedestroy($img);
