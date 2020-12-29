@@ -1,0 +1,81 @@
+## Обрезать в файле
+```
+<?define("INDEX_PAGE", "Y");?>
+<?define("MAIN_PAGE", true);?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
+<?php
+
+$imgSource = 'https://made-hand.ru/upload/iblock/a32/a32803318ee2f2e809d64575e629807e.jpg';?>
+<br>Исходник:<br>
+<img src="<?=$imgSource?>"><br><br>
+<?
+function makeMirrorPic($fileImg, $newFile)
+{
+    // загружаем картинку
+    $source = imagecreatefromjpeg($fileImg);
+    // получаем размеры картинки
+    $size = getimagesize($fileImg);
+    // создаем новое изображение
+    $img = imagecreatetruecolor($size[0]-1, $size[1]-1);
+    // наносим попиксельно изображение в обратном порядке
+    for ($x = 0; $x < $size[0]-1; $x++) {
+        for ($y = 0; $y < $size[1]-1; $y++) {
+            $color = imagecolorat($source, $x, $y);
+            imagesetpixel($img, $size[0]-1 - $x, $y, $color);
+        }
+    }
+    // сохраняем изображение
+    imagejpeg($img, $newFile);
+
+    $arr = getimagesize($newFile);
+
+    //Изменяем размеры картинки
+    $arFile = CFile::MakeFileArray($fileImg);
+
+    $arrResizeParams = [
+        "WIDTH" => $arr[0]-1,
+        "HEIGHT" => $arr[1]-1,
+        "METHOD" => "resample",
+        'COMPRESSION' => 75,
+    ];
+    $arNewFile = CIBlock::ResizePicture(CFile::MakeFileArray(CFile::SaveFile(CFile::MakeFileArray($arFile['tmp_name']),'tmp')), $arrResizeParams); // сольет промежуточные сторонние фотки в папку tm
+//    if(is_array($arNewFile)) {
+//        echo '<br>Новый файл после ресайза<pre>'; print_r($arNewFile); echo '</pre>';
+//    }
+//    else
+//    {
+//        //Можно вернуть ошибку
+//        $APPLICATION->throwException("Ошибка масштабирования изображения в свойстве \"Файлы\":".$arNewFile);
+//        return false;
+//    }
+
+    // очищаем память
+    imagedestroy($img);
+    return $newFile;
+}
+
+$imgRes = makeMirrorPic($imgSource, 'testNew.jpg');?>
+<br>Получилось:<br>
+<img src="<?=$imgRes?>"><br><br>
+
+
+
+
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+```
+
+## Обрезать в init.php на случайно сгенерированное кол-во пикселей
+```
+AddEventHandler("main",'OnFileSave','OnFileSaveHandler');
+function OnFileSaveHandler(&$arFile, $fileName, $module){
+    // Обрезать картнку на случайное кол-во пикселей
+    $size = getimagesize($arFile['tmp_name']); // размер получаем
+    $randX = rand(0,2);
+    $randY = rand(1,2);
+
+    //обрезает оригинал
+    $arNewFile = CIBlock::ResizePicture($arFile, array("WIDTH" => $size[0]-$randX, "HEIGHT" => $size[1]-$randY, "METHOD" => "resample"));
+    if(is_array($arNewFile))
+        $arFile = $arNewFile;
+}
+```
