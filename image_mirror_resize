@@ -1,3 +1,5 @@
+## Обрезать в файле
+```
 <?define("INDEX_PAGE", "Y");?>
 <?define("MAIN_PAGE", true);?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
@@ -60,3 +62,20 @@ $imgRes = makeMirrorPic($imgSource, 'testNew.jpg');?>
 
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+```
+
+## Обрезать в init.php на случайно сгенерированное кол-во пикселей
+```
+AddEventHandler("main",'OnFileSave','OnFileSaveHandler');
+function OnFileSaveHandler(&$arFile, $fileName, $module){
+    // Обрезать картнку на случайное кол-во пикселей
+    $size = getimagesize($arFile['tmp_name']); // размер получаем
+    $randX = rand(0,2);
+    $randY = rand(1,2);
+
+    //обрезает оригинал
+    $arNewFile = CIBlock::ResizePicture($arFile, array("WIDTH" => $size[0]-$randX, "HEIGHT" => $size[1]-$randY, "METHOD" => "resample"));
+    if(is_array($arNewFile))
+        $arFile = $arNewFile;
+}
+```
