@@ -14,5 +14,5 @@
 ## PHP наработки
 * [Парсер регионов и городов РФ из Википедии](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/parser/)
 * [Bash скрипты бекапирования файлов и базы](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/backup/)
-* [Изображения. Отражение и уменьшение.](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/image_mirror_resize)
+* [Изображения. Отражение и уменьшение.](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/images_resize.md)
 
