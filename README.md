@@ -17,5 +17,8 @@
 * [Изображения. Отражение и уменьшение.](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/images_resize.md)
 * [Превью описание из детального](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/php/getPreviewText.md)
 * [Транслитерация](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/php/translitiration.md)
+* [Отправка массива по почте](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/php/mailArray.md)
+
+
 
 
