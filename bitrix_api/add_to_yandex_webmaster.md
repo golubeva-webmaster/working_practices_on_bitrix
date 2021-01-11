@@ -1,5 +1,5 @@
 ## Скрипт формирует список страниц для добавления в yandex webmaster & google search console
-Запускается по крону
+30 страниц выбирается случайным образом. Запускается по крону.
 ```
 <?php
 $_SERVER['DOCUMENT_ROOT'] = '/home/m/marigolu18/marigolu18.beget.tech/public_html';
