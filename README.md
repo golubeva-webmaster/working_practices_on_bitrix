@@ -4,6 +4,7 @@
 ### API
 * [Сделать заказ оплаченным](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/bitrix_api/order_payed.md)
 * [Скрипт формирует список страниц для добавления в yandex webmaster & google search console](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/bitrix_api/add_to_yandex_webmaster.md)
+* [Удаление не удаленных файлов](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/bitrix_api/clear_files.md)
 
 ### Модуль "Техподдержка"
 * [Битрикс. Техподдержка. Связь Критичности с Крайнего срока обращения](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/support_criticaly.md)
