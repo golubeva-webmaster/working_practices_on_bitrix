@@ -15,5 +15,5 @@ var params = window
         {}
     );
 
-console.log( params['code']);
+console.log( params['code']); // получим значение параметра code
 ```
