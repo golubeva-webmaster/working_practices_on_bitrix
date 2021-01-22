@@ -26,6 +26,6 @@
 * [Отправка массива по почте](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/php/mailArray.md)
 
 ## JS
-
+* [Мелкие полезные хуки](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/small_examples.md)
 
 
