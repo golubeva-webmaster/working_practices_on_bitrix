@@ -11,7 +11,7 @@ $text = $mailtext = '';
 global $USER;
 
 \Bitrix\Main\Loader::IncludeModule("iblock");
-$arSelect = Array("ID", "DETAIL_TEXT", "NAME", "DETAIL_PAGE_URL", "PROPERTY_MORE_PHOTO");
+$arSelect = Array("ID", "DETAIL_TEXT", "NAME", "DETAIL_PAGE_URL");
 $arFilter = Array(	"IBLOCK_ID"=>48,
 	"ACTIVE_DATE"=>"Y",
 	"ACTIVE"=>"Y",
