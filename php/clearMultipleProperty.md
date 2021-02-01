@@ -40,7 +40,7 @@ while($ob = $res->GetNextElement())
    }
 }
 //echo $text;
-//mail('golubeva.webmaster@gmail.com', 'Result of resave '.date('U'), $mailtext);
+//mail('xxx@gmail.com', 'Result of resave '.date('U'), $mailtext);
 
 require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/epilog_after.php');
 ?>
