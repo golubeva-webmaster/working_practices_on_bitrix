@@ -30,7 +30,8 @@
 
 ## JS
 * [Мелкие полезные скрипты](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/small_examples.md)
+* [Проверить, если такой юзер есть в системе,то авторизовать](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/userAuth/index.md)
 * [Модальное окно]
-* 
+
 
 
