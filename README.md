@@ -33,6 +33,7 @@
 * [Проверить, если такой юзер есть в системе,то авторизовать](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/userAuth/index.md)
 * [Подстановка данных физ и юр лиц на странице оформления заказа](https://github.com/golubeva-webmaster/working_practices_on_bitrix/tree/main/js/orderInsertUserInfo)
 * [Всплывающее окно cookies при первом посещении](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/cookiesShowWindow/index.js)
+* [Если вес корзины более 5т, отобразить форму для оптовиков](https://github.com/golubeva-webmaster/working_practices_on_bitrix/tree/main/js/optovikFormShow)
 * [Модальное окно]
 
 
