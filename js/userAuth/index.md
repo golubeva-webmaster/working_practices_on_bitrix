@@ -1,5 +1,5 @@
 * Проверить, если такой юзер есть в системе,то авторизовать
-`
+```
 function EmailAuth(arr){
 	try{
 		$.ajax({
@@ -25,4 +25,4 @@ function EmailAuth(arr){
 		console.error('%cError Email Auth '+err, 'color:yellow:background:red;');
 	}
 };
-`
+```
