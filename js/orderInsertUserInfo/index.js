@@ -8,7 +8,7 @@ if(isOrderPage()){
 
 		$.ajax({
 			type: 'POST',
-			url: '/local/templates/main/ajax/user-get-info.php',
+			url: 'user-get-info.php',
 			data: '',
 			dataType: 'json',
 		}).done(function(res){
