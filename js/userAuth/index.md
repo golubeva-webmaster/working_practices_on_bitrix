@@ -25,4 +25,11 @@ function EmailAuth(arr){
 		console.error('%cError Email Auth '+err, 'color:yellow:background:red;');
 	}
 };
+
+// После ввода емейла (потеря фокуса) авторизовать, если есть такой юзер в системе
+$(document).on("blur", "#soa-property-25, #soa-property-12", function (e) {
+	if(($(this).val()).trim()){
+		EmailAuth({'EMAIL': ($(this).val()).trim()});
+	}
+}
 ```
