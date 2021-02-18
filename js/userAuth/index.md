@@ -4,7 +4,7 @@ function EmailAuth(arr){
 	try{
 		$.ajax({
 			type: 'POST',
-			url: '/local/templates/main/ajax/user-authorize.php',
+			url: 'user-authorize.php',
 			data: arr,
 			dataType: 'json',
 		}).done(function(res){
