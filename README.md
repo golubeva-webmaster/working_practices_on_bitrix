@@ -26,6 +26,7 @@
 * [Отправка массива по почте](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/php/mailArray.md)
 * [Получение ID картинки по CSR](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/php/getFileIdBySrc.md)
 * [Очистить множественное св-то типа файл](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/php/clearMultipleProperty.md)
+* [Логирование](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/php/logs/index.php)
 
 
 ## JS
