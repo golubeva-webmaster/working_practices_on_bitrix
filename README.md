@@ -29,13 +29,11 @@
 
 
 ## JS
-### Оформление заказа
 * [Оформление заказа. Проверить, если такой юзер есть в системе,то авторизовать](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/userAuth/index.md)
 * [Оформление заказа. Вывод согласия с условиями офферты для физ или юр лица](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/offerta/index.js)
 * [Оформление заказа. При редактировании ИНН, взять данные из dadata и подставить в форму](https://github.com/golubeva-webmaster/working_practices_on_bitrix/tree/main/js/getUserByINN)
 * [Оформление заказа. Подстановка данных физ и юр лиц](https://github.com/golubeva-webmaster/working_practices_on_bitrix/tree/main/js/orderInsertUserInfo)
 * [Оформление заказа. Если вес корзины более 5т, отобразить форму для оптовиков](https://github.com/golubeva-webmaster/working_practices_on_bitrix/tree/main/js/optovikFormShow)
-
 * [Всплывающее окно cookies при первом посещении](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/cookiesShowWindow/index.js)
 * [POST запрос при помощи XMLHttpRequest](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/POST_XMLHttpRequest/index.js)
 * [Мелкие полезные скрипты](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/small_examples.md)
