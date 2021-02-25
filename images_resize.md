@@ -39,15 +39,6 @@ function makeMirrorPic($fileImg, $newFile)
         'COMPRESSION' => 75,
     ];
     $arNewFile = CIBlock::ResizePicture(CFile::MakeFileArray(CFile::SaveFile(CFile::MakeFileArray($arFile['tmp_name']),'tmp')), $arrResizeParams); // сольет промежуточные сторонние фотки в папку tm
-//    if(is_array($arNewFile)) {
-//        echo '<br>Новый файл после ресайза<pre>'; print_r($arNewFile); echo '</pre>';
-//    }
-//    else
-//    {
-//        //Можно вернуть ошибку
-//        $APPLICATION->throwException("Ошибка масштабирования изображения в свойстве \"Файлы\":".$arNewFile);
-//        return false;
-//    }
 
     // очищаем память
     imagedestroy($img);
