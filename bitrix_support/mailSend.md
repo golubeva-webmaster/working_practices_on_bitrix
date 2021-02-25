@@ -1,9 +1,9 @@
 # При снятии ответственного у обращения в Техподдержку, отсылать уведомление прежнему ответственному.
 init.php
-* Отправить сообщение $arRes['RESPONSIBLE_EMAIL'] о том, что с него снята ответственность.
-* 1) Завести тип почтового события TICKET_CHANGE_RESPONSIBLE_FOR_OLD_RESPONSIBLE, в нем параметр: OLD_RESPONSIBLE_USER_EMAIL
-* 2) Завести шаблон
-* 3) Отправить письмо CEvent::Send
+Отправить сообщение $arRes['RESPONSIBLE_EMAIL'] о том, что с него снята ответственность.
+* Завести тип почтового события TICKET_CHANGE_RESPONSIBLE_FOR_OLD_RESPONSIBLE, в нем параметр: OLD_RESPONSIBLE_USER_EMAIL
+* Завести шаблон
+* Отправить письмо CEvent::Send
 
 ```
  AddEventHandler('support', 'OnBeforeTicketUpdate', array("SupportTicket","OnBeforeTicketUpdateHandler"));
