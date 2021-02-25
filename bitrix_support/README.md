@@ -12,7 +12,7 @@ init.php
         $rsFiles = CTicket::GetByID($arFields['ID'], "RU", "N","Y","N");
         if($arRes = $rsFiles->Fetch())
         {
-            if($arRes['RESPONSIBLE_USER_ID'] <> $arFields['RESPONSIBLE_USER_ID']){
+            if($arRes['RESPONSIBLE_USER_ID'] <> $arFields['RESPONSIBLE_USER_ID'] && $arFields['RESPONSIBLE_USER_ID']<>''){
 
                 CEvent::Send(
                     "TICKET_CHANGE_RESPONSIBLE_FOR_OLD_RESPONSIBLE",
