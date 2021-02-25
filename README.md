@@ -11,7 +11,7 @@
 * [Битрикс. Техподдержка. Распарсивание непрочитанных писем. Создание на их основе обращений в модуль Техподдержка](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/parser_mail/)
 * [Битрикс. Техподдержка. Связь Критичности с Крайнего срока обращения](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/support_criticaly.md)
 * [Битрикс. Техподдержка. Статус Решена=Закрыта. Статус Отложена=Отложена](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/support_close_ticket.md)
-* [Битрикс. Техподдержка. Уведомление о снятии ответственности](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/bitrix_support/README.md)
+* [Битрикс. Техподдержка. Уведомление о снятии ответственности прежниму ответственному](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/bitrix_support/README.md)
 
 ### Кастомизация админки битрикса
 
