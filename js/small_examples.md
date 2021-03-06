@@ -1,4 +1,10 @@
 # Примеры полезных скриптов на js
+## Выбросить ошибку
+```
+  if (Object.prototype.toString.call(date) != '[object Date]') {
+    throw new Error('THROWN');
+  }
+```
 ## Получить параметр из url
 ```
 var params = window
