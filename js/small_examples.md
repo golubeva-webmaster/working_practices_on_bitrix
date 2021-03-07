@@ -1,4 +1,9 @@
 # Примеры полезных скриптов на js
+## Строки
+### Удалить из строки все гласные
+`str.replace(/[aeiou]/gi, '');`
+
+
 ## Выбросить ошибку
 ```
   if (Object.prototype.toString.call(date) != '[object Date]') {
