@@ -2,6 +2,13 @@
 ## Строки
 ### Удалить из строки все гласные
 `str.replace(/[aeiou]/gi, '');`
+### Найти максимальное и минимальное числа в массиве
+```
+function highAndLow(numbers){
+  let arr = numbers.split(' ').map(Number);  
+  return Math.max(...arr) + ' ' + Math.min(...arr);
+}
+```
 
 
 ## Выбросить ошибку
