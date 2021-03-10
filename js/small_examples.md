@@ -23,19 +23,21 @@ function highAndLow(numbers){
 ```
 ## Получить параметр из url
 ```
-var params = window
-    .location
-    .search
-    .replace('?','')
-    .split('&')
-    .reduce(
-        function(p,e){
-            var a = e.split('=');
-            p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
-            return p;
-        },
-        {}
-    );
-
-console.log( params['code']); // получим значение параметра code
+// разбиваем адресную строку на массив параметров и возвращаем их
+function getParamsFromUrl(){
+    var param = window
+        .location
+        .search
+        .replace('?','')
+        .split('&')
+        .reduce(
+            function(p,e){
+                var a = e.split('=');
+                p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+                return p;
+            },
+            {}
+        );
+    return param;
+}
 ```
