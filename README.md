@@ -39,4 +39,5 @@
 * [Всплывающее окно cookies при первом посещении](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/cookiesShowWindow/index.js)
 * [POST запрос при помощи XMLHttpRequest](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/POST_XMLHttpRequest/index.js)
 * [Мелкие полезные скрипты](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/small_examples.md)
+* [Ajax запрос на примере получения данных о заказе по его id](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/ajax.md)
 
