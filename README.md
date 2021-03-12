@@ -40,4 +40,5 @@
 * [POST запрос при помощи XMLHttpRequest](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/POST_XMLHttpRequest/index.js)
 * [Мелкие полезные скрипты](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/small_examples.md)
 * [Ajax запрос на примере получения данных о заказе по его id](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/js/ajax.md)
+* [GoogleTagManager. Выборка с различных страниц](https://github.com/golubeva-webmaster/working_practices_on_bitrix/tree/main/googleTagManager)
 
