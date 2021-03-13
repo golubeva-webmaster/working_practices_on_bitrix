@@ -24,7 +24,7 @@
 * [Логирование](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/php/logs/index.php)
 
 ## Битрикс
-  
+   
 ### API
 * [Сделать заказ оплаченным](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/bitrix_api/order_payed.md)
 * [Скрипт формирует список страниц для добавления в yandex webmaster & google search console](https://github.com/golubeva-webmaster/working_practices_on_bitrix/blob/main/bitrix_api/add_to_yandex_webmaster.md)
