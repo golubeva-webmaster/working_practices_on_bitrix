@@ -1,6 +1,6 @@
 /*
 Задача.
-На различных страницах сайта сделать выборку для google tag manager
+На различных страницах сайта сделать выборку для google search console ecom
 и добавить ее в объект dataLayer
 */
 var dataLayer = window.dataLayer || [];
