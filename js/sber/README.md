@@ -11,3 +11,5 @@
  - Формируем HTTP запрос создание кредитной заявки POST https://edupirfintech.sberbank.ru:9443/fintech/api/v1/credit-requests
  - В случае положительного запроса (получаем код ответа 200) переводим клиента по ссылке на созданное кредитное предложение: https://edupir.testsbi.sberbank.ru:9443/ic/dcb/index.html#/credits/credit-financing/credit-partners?params_list
  - На крон вешаем запрос с проверкой состояния заказа GET https://fintech.sberbank.ru:9443/fintech/api/v1/payments/orders_GUID/state 
+
+![img/order_sber.jpg](order sber)
