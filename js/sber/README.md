@@ -13,3 +13,4 @@
  - На крон вешаем запрос с проверкой состояния заказа GET https://fintech.sberbank.ru:9443/fintech/api/v1/payments/orders_GUID/state 
 
 <img src="img/order_sber.jpg" alt="order sber">
+![https://github.com/golubeva-webmaster/Portfolio/blob/main/img/order_sber.jpg]
