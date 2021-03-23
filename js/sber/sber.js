@@ -1,9 +1,9 @@
 console.log('1');
 
 // VARIABLES
-var sber_url = 'https://edupir.testsbi.sberbank.ru:9443',
-    //sber_url_prom = 'https://sbi.sberbank.ru:9443';
-    client_id = 10405;
+var sber_url = 'https://xxxxx',
+    //sber_url_prom = 'https://xxxxx';
+    client_id = 11111;
 
 console.log('client_id = '+client_id);
 /* sber test user User370-00-01 / Qwerty54321 / sms: 11111 */
