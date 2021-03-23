@@ -6,7 +6,6 @@ var sber_url = 'https://xxxxx',
     client_id = 11111;
 
 console.log('client_id = '+client_id);
-/* sber test user User370-00-01 / Qwerty54321 / sms: 11111 */
 
 currentUrl = document.location.href.split('?')[0];
 
